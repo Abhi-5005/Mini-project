@@ -1,0 +1,11 @@
+Mini-project/
+│── data/
+│   └── employees.csv
+│
+│── etl/
+│   └── etl_pipeline.ipynb
+│
+│── database/
+│   └── company.db
+│
+│── README.md
