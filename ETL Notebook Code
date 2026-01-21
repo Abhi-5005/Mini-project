@@ -1,0 +1,22 @@
+--> Extract
+
+import pandas as pd
+import sqlite3
+
+df = pd.read_csv("../data/employees.csv")
+df
+
+--> Transform
+
+df['salary'] = df['salary'] * 1.10   # 10% hike
+df['join_date'] = pd.to_datetime(df['join_date'])
+
+df
+
+--> Load
+
+conn = sqlite3.connect("../database/company.db")
+df.to_sql("employees", conn, if_exists="replace", index=False)
+conn.close()
+
+print("Data loaded successfully into SQLite database")
